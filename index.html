@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<body lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Teacher's Day</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <audio id="background-music" loop muted> 
+    <source src="images/nhac_nen.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
+
+    <div id="code-screen" class="screen active">
+    <img id="code-image" src="images/nen.png" alt="Code Editor Screen" 
+         style="width: 60%; height: 95vh; object-fit: cover;">
+    </div>
+
+    <div id="pin-screen" class="screen hidden">
+        <div class="pin-container">
+            <p style="font-size: large">Đố cô pass là gì?</p>
+            <div id="pin-display">_ _ _ _</div>
+            <div class="keypad">
+                <button onclick="enterPin('1')">1</button>
+                <button onclick="enterPin('2')">2</button>
+                <button onclick="enterPin('3')">3</button>
+    
+                <button onclick="enterPin('4')">4</button>
+                <button onclick="enterPin('5')">5</button>
+                <button onclick="enterPin('6')">6</button>
+    
+                <button onclick="enterPin('7')">7</button>
+                <button onclick="enterPin('8')">8</button>
+                <button onclick="enterPin('9')">9</button>
+    
+                <button onclick="clearPin()">C</button>
+                <button onclick="enterPin('0')">0</button>
+                <button onclick="backspacePin()">⌫</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-screen" class="screen hidden">
+        <div class="message-box">
+            <h2>Happy 20/11</h2>
+        </div>
+        <div class="message-box">
+            <p><b>For Cô Loan ❤️</b></p>
+        </div>
+
+        <div class="photo-grid">
+            <div class="main-photo-card">
+                <img src="images/tapthe.jpg" alt="Ảnh tập thể">
+                <p>❤️ Chúc mừng Ngày Nhà Giáo Việt Nam ❤️</p>
+            </div>
+            <img class="floating-photo p1" src="images/anh1.jpg" alt="Ảnh 1">
+            <img class="floating-photo p2" src="images/anh2.jpg" alt="Ảnh 2">
+            <img class="floating-photo p3" src="images/anh3.jpg" alt="Ảnh 3">
+            <img class="floating-photo p4" src="images/anh4.jpg" alt="Ảnh 4">
+            <img class="floating-photo p5" src="images/anh5.jpg" alt="Ảnh 5">
+            <img class="floating-photo p6" src="images/anh6.jpg" alt="Ảnh 6">
+            <img class="floating-photo p7" src="images/anh7.jpg" alt="Ảnh 7">
+            <img class="floating-photo p8" src="images/anh8.jpg" alt="Ảnh 8">
+            <img class="floating-photo p9" src="images/anh9.jpg" alt="Ảnh 9">
+            <img class="floating-photo p10" src="images/anh10.jpg" alt="Ảnh 10">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

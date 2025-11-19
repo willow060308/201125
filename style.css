@@ -1,0 +1,243 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding:0;
+    overflow: hidden; 
+    background-color: #f7f3f3; 
+}
+
+.screen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    flex-direction: column;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    transform: scale(1.1);
+}
+
+.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10;
+}
+
+#pin-screen {
+    background-color: #fff; 
+}
+
+.pin-container {
+    text-align: center;
+    padding: 30px;
+}
+
+#pin-display {
+    font-size: 2em;
+    letter-spacing: 0.5em;
+    margin: 20px 0;
+    color: #e83e8c;
+}
+
+.keypad {
+    display: flex;
+    flex-wrap: wrap;
+    width: 270px; /* 3 nút * (80px rộng + 5px margin trái + 5px margin phải) = 270px */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.keypad button {
+    width: 80px;
+    height: 80px;
+    margin: 5px; 
+    font-size: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff0f5;
+    color: #e83e8c;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#main-screen {
+    background-color: #ffc0cb;
+    position: relative;
+}
+
+.message-box {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    position: absolute;
+}
+
+.message-box:first-of-type {
+    top: 35%;
+    left: 20%;
+    transform: translateX(-50%);
+}
+
+.message-box:nth-child(2) {
+    top: 35%;
+    right: 20%;
+    transform: translateX(50%);
+}
+
+.photo-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-photo-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 2;
+}
+
+.main-photo-card img {
+    max-width: 350px;
+    border-radius: 5px;
+}
+
+.floating-photo {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    z-index: 5;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite; 
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+.p1 { 
+    width: 200px;
+    top: 5%; 
+    left: 15%; 
+    --rotation: -5deg;
+    animation: full-drift 10s normal infinite, fadeIn 0.5s forwards;
+    animation-delay: 0s, 1s;
+}
+.p2 { 
+    width: 300px;
+    top: 15%; 
+    right: 15%; 
+    --rotation: 10deg;
+    animation: full-drift 13s reverse infinite, fadeIn 0.5s forwards; 
+    animation-delay: 0s, 1.5s;
+}
+.p3 { 
+    width: 200px;
+    bottom: 10%; 
+    left: 25%; 
+    --rotation: 3deg; 
+    animation: full-drift 12s normal infinite, fadeIn 0.5s forwards; 
+    animation-delay: 0s, 2s;
+}
+.p4 { 
+    width: 300px;
+    bottom: 5%; 
+    right: 5%; 
+    --rotation: -8deg; 
+    animation: full-drift 15s reverse infinite, fadeIn 0.5s forwards; 
+    animation-delay: 0s, 2.5s;
+}
+.p5 { 
+    width: 200px;
+    top: 50%; 
+    left: 5%; 
+    --rotation: 15deg;
+    animation: full-drift 11s normal infinite, fadeIn 0.5s forwards; 
+    animation-delay: 0s, 3s;
+}
+.p6 { 
+    width: 300px;
+    top: 50%; 
+    right: 35%; 
+    --rotation: 20deg;
+    animation: full-drift 16s reverse infinite, fadeIn 0.5s forwards; 
+    animation-delay: 0s, 3.5s;
+}
+.p7 {
+    width: 200px;
+    top: 20%; 
+    left: 40%;
+    --rotation: 8deg;
+    animation: full-drift 14s normal infinite, fadeIn 0.5s forwards; 
+    animation-delay: 0s, 4s;
+}
+.p8 {
+    width: 300px;
+    bottom: 60%;
+    right: 40%; 
+    --rotation: -10deg;
+    animation: full-drift 17s reverse infinite, fadeIn 0.5s forwards; 
+    animation-delay: 0s, 4.5s;
+}
+.p9 {
+    width: 200px;
+    top: 50%;
+    left: 30%; 
+    --rotation: 5deg;
+    animation: full-drift 18s normal infinite, fadeIn 0.5s forwards; 
+    animation-delay: 0s, 5s;
+}
+.p10 {
+    width: 300px;
+    top: 10%;
+    left: 70%; 
+    --rotation: -12deg;
+    animation: full-drift 11s reverse infinite, fadeIn 0.5s forwards; 
+    animation-delay: 0s, 5.5s;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0.5; }
+}
+@keyframes full-drift {
+    0% { 
+        transform: translate(calc(-100vw - 200px), 0px); 
+    } 
+    100% { 
+        transform: translate(100vw, 0px); 
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.heart {
+    position: absolute;
+    color: #e83e8c;
+    font-size: 20px;
+    animation: fall linear infinite;
+    z-index: 1;
+}
